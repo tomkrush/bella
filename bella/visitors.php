@@ -101,6 +101,30 @@ class SQLVisitor implements Visitor
 		return "{$left} < {$right}";
 	}
 	
+	public function visitBinaryLessThanOrEqual(NodeBinaryLessThanOrEqual $node)
+	{
+  	$left = $this->visit($node->left);
+  	$right = $this->visit($node->right);
+
+		return "{$left} <= {$right}";
+	}
+	
+	public function visitBinaryGreaterThan(NodeBinaryGreaterThan $node)
+	{
+  	$left = $this->visit($node->left);
+  	$right = $this->visit($node->right);
+
+		return "{$left} > {$right}";
+	}
+	
+	public function visitBinaryGreaterThanOrEqual(NodeBinaryGreaterThanOrEqual $node)
+	{
+  	$left = $this->visit($node->left);
+  	$right = $this->visit($node->right);
+
+		return "{$left} >= {$right}";
+	}
+	
 	public function visitGrouping(NodeGrouping $node)
 	{
   	$expression = $this->visit($node->expression);

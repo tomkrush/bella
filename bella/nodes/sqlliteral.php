@@ -126,24 +126,24 @@ class NodeSQLLiteral extends Node
 		return $this->grouping_all('does_not_match', $others);
 	}
 	
-	public function gteg($other)
+	public function gteq($other)
 	{
-		return new NodeGreaterThanOrEqual($this, $other);
+		return new NodeBinaryGreaterThanOrEqual($this, $other);
 	}
 	
-	public function gteg_any($others)
+	public function gteq_any($others)
 	{
-		return $this->grouping_any('gteg', $others);
+		return $this->grouping_any('gteq', $others);
 	}
 	
-	public function gteg_all($others)
+	public function gteq_all($others)
 	{
-		return $this->grouping_all('gteg', $others);
+		return $this->grouping_all('gteq', $others);
 	}
 	
 	public function gt($other)
 	{
-		return new NodeGreaterThan($this, $other);
+		return new NodeBinaryGreaterThan($this, $other);
 	}
 	
 	public function gt_any($others)
@@ -156,19 +156,19 @@ class NodeSQLLiteral extends Node
 		return $this->grouping_all('gt', $others);
 	}
 	
-	public function lteg($other)
+	public function lteq($other)
 	{
-		return new NodeLessThanOrEqual($this, $other);
+		return new NodeBinaryLessThanOrEqual($this, $other);
 	}
 	
-	public function lteg_any($others)
+	public function lteq_any($others)
 	{
-		return $this->grouping_any('lteg', $others);
+		return $this->grouping_any('lteq', $others);
 	}
 	
-	public function lteg_all($others)
+	public function lteq_all($others)
 	{
-		return $this->grouping_all('lteg', $others);
+		return $this->grouping_all('lteq', $others);
 	}
 	
 	public function lt($other)

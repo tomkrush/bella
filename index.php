@@ -13,6 +13,7 @@ $suite->addTestCase('NodeSumTestCase');
 $suite->addTestCase('NodeMaximumTestCase');
 $suite->addTestCase('NodeMinimumTestCase');
 $suite->addTestCase('NodeAverageTestCase');
+$suite->addTestCase('NodeBinaryTestCase');
 $suite->addTestCase('TableTestCase');
 
 $suite->run();
