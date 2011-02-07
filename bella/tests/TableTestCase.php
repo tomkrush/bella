@@ -34,6 +34,15 @@ class TableTestCase extends UnitTestCase
 		$this->assertEquals('SELECT * FROM users WHERE (project_id = 1 OR project_id = 4)', $query->to_sql(), 'should produce a statement');
 	}
 	
+	public function test_table_where_or()
+	{
+		$users = new Table('users');
+		$query = $users->where($users['name']->eq('bob')->otherwise($users['age']->lt(25)));
+		
+		$this->assertEquals("SELECT FROM users WHERE (name = bob OR age < 25)", $query->to_sql(), 'should produce a statement');
+	}
+
+	
 	public function test_table_having()
 	{
 		$users = new Table('users');

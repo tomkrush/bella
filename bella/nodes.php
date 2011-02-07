@@ -15,6 +15,7 @@ require_once 'nodes/minimum.php';
 require_once 'nodes/number.php';
 require_once 'nodes/offset.php';
 require_once 'nodes/or.php';
+require_once 'nodes/lessthan.php';
 require_once 'nodes/ordering.php';
 require_once 'nodes/selectstatement.php';
 require_once 'nodes/sqlliteral.php';

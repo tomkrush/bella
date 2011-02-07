@@ -93,6 +93,14 @@ class SQLVisitor implements Visitor
 		return "{$left} AND {$right}";
 	}
 	
+	public function visitBinaryLessThan(NodeBinaryLessThan $node)
+	{
+  	$left = $this->visit($node->left);
+  	$right = $this->visit($node->right);
+
+		return "{$left} < {$right}";
+	}
+	
 	public function visitGrouping(NodeGrouping $node)
 	{
   	$expression = $this->visit($node->expression);

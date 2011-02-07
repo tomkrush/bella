@@ -171,17 +171,17 @@ class NodeSQLLiteral extends Node
 		return $this->grouping_all('lteg', $others);
 	}
 	
-	public function glt($other)
+	public function lt($other)
 	{
-		return new NodeLessThan($this, $other);
+		return new NodeBinaryLessThan($this, $other);
 	}
 	
-	public function glt_any($others)
+	public function lt_any($others)
 	{
 		return $this->grouping_any('glt', $others);
 	}
 	
-	public function glt_all($others)
+	public function lt_all($others)
 	{
 		return $this->grouping_all('glt', $others);
 	}
