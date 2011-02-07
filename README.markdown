@@ -22,7 +22,7 @@ echo  $users->project('*')->to_sql();
 $users = new Table('users');
 $query = $users->where($users['name']->eq('bob')->otherwise($users['age']->lt(25)));
 
-// Result: SELECT FROM users WHERE (name = bob OR age < 25)
+// Result: SELECT FROM users WHERE (name = 'bob' OR age < 25)
 
 ### Keyword Conflicts
 
