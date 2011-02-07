@@ -24,7 +24,7 @@ class SQLVisitor implements Visitor
 		return $this->$method($node);
 	}
 	
-	public function visitSQLLiteral(Node $node)
+	public function visitSQLLiteral(NodeSQLLiteral $node)
 	{
 		return $node->value;
 	}
@@ -137,6 +137,15 @@ class SQLVisitor implements Visitor
 		return $node->value;
 	}
 	
+	public function visitAttribute(NodeAttribute $node)
+	{
+		$relation = $node->relation;
+		$table_name = $this->quoteTableName($relation->name);
+		$column_name = $this->quoteColumnName($node->value);
+		
+		return "{$table_name}.{$column_name}";
+	}
+	
 	public function visitNumber(NodeNumber $node)
 	{
 		return $node->value;
@@ -241,6 +250,11 @@ class SQLVisitor implements Visitor
 		{
 			return "{$left} IS NULL";
 		}
+	}
+
+	public function quoteColumnName($name)
+	{
+		return "\"{$name}\"";
 	}
 	
 	public function quoteTableName($name)

@@ -72,6 +72,6 @@ class Table implements arrayaccess
 	
 	public function offsetGet($offset) 
 	{
-		return new NodeSQLLiteral($offset);
+		return new NodeAttribute($offset, $this);
 	}
 }

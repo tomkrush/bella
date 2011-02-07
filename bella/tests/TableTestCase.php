@@ -23,7 +23,7 @@ class TableTestCase extends UnitTestCase
 		$users = new Table('users');
 		$query =  $users->project('*')->where($users['project_id']->eq(1));
 		
-		$this->assertEquals('SELECT * FROM "users" WHERE project_id = 1', $query->to_sql(), 'should produce a where statement with a project');
+		$this->assertEquals('SELECT * FROM "users" WHERE "users"."project_id" = 1', $query->to_sql(), 'should produce a where statement with a project');
 	}
 	
 	public function test_table_complex_where()
@@ -31,7 +31,7 @@ class TableTestCase extends UnitTestCase
 		$users = new Table('users');
 		$query =  $users->project('*')->where($users['project_id']->eq_any(array(1,4)));
 		
-		$this->assertEquals('SELECT * FROM "users" WHERE (project_id = 1 OR project_id = 4)', $query->to_sql(), 'should produce a statement');
+		$this->assertEquals('SELECT * FROM "users" WHERE ("users"."project_id" = 1 OR "users"."project_id" = 4)', $query->to_sql(), 'should produce a statement');
 	}
 	
 	public function test_table_where_or()
@@ -39,7 +39,7 @@ class TableTestCase extends UnitTestCase
 		$users = new Table('users');
 		$query = $users->where($users['name']->eq('bob')->otherwise($users['age']->lt(25)));
 		
-		$this->assertEquals('SELECT FROM "users" WHERE (name = bob OR age < 25)', $query->to_sql(), 'should produce a statement');
+		$this->assertEquals('SELECT FROM "users" WHERE ("users"."name" = bob OR "users"."age" < 25)', $query->to_sql(), 'should produce a statement');
 	}
 
 	
@@ -48,7 +48,7 @@ class TableTestCase extends UnitTestCase
 		$users = new Table('users');
 		$query = $users->project('*')->having($users['id']->eq(10));
 		
-		$this->assertEquals('SELECT * FROM "users" HAVING id = 10', $query->to_sql(), 'Should produce a having statement');
+		$this->assertEquals('SELECT * FROM "users" HAVING "users"."id" = 10', $query->to_sql(), 'Should produce a having statement');
 	}
 	
 	public function test_table_group()

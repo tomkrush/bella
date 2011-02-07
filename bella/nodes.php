@@ -2,6 +2,7 @@
 
 require_once 'nodes/node.php';
 require_once 'nodes/sqlliteral.php';
+require_once 'nodes/attribute.php';
 
 require_once 'nodes/selectstatement.php';
 require_once 'nodes/grouping.php';
