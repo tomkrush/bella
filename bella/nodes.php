@@ -1,14 +1,17 @@
 <?php
 
 require_once 'nodes/node.php';
-require_once 'nodes/primitive.php';
+require_once 'nodes/sqlliteral.php';
+
+require_once 'nodes/selectstatement.php';
 require_once 'nodes/grouping.php';
 require_once 'nodes/having.php';
-require_once 'nodes/number.php';
 require_once 'nodes/offset.php';
 require_once 'nodes/ordering.php';
-require_once 'nodes/selectstatement.php';
-require_once 'nodes/sqlliteral.php';
+
+// Primitives
+require_once 'nodes/primitive.php';
+require_once 'nodes/number.php';
 require_once 'nodes/string.php';
 
 // Binary
