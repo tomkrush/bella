@@ -16,7 +16,7 @@ class SelectManager extends TreeManager
 		
 		foreach($projections as $projection)
 		{
-			$this->ast->projections[] = $projection;
+			$this->ast->projections[] = (is_object($projection)) ? $projection : new NodeSQLLiteral($projection);
 		}
 		
 		return $this;
@@ -38,7 +38,7 @@ class SelectManager extends TreeManager
 	
 		foreach($columns as $column)
 		{
-			$this->ast->groups[] = $column;
+			$this->ast->groups[] = (is_object($column)) ? $column : new NodeSQLLiteral($column);
 		}
 	
 		return $this;	
@@ -84,7 +84,7 @@ class SelectManager extends TreeManager
 
 		foreach($columns as $column)
 		{
-			$this->ast->orders[] = $column;
+			$this->ast->orders[] = (is_object($column)) ? $column : new NodeSQLLiteral($column);
 		}
 	
 		return $this;

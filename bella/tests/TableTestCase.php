@@ -38,8 +38,8 @@ class TableTestCase extends UnitTestCase
 	{
 		$users = new Table('users');
 		$query = $users->where($users['name']->eq('bob')->otherwise($users['age']->lt(25)));
-		
-		$this->assertEquals('SELECT FROM "users" WHERE ("users"."name" = bob OR "users"."age" < 25)', $query->to_sql(), 'should produce a statement');
+				
+		$this->assertEquals('SELECT FROM "users" WHERE ("users"."name" = \'bob\' OR "users"."age" < 25)', $query->to_sql(), 'should produce a statement');
 	}
 
 	

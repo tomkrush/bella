@@ -134,7 +134,7 @@ class SQLVisitor implements Visitor
 
 	public function visitString(NodeString $node)
 	{
-		return $node->value;
+		return $this->quote($node->value);
 	}
 	
 	public function visitAttribute(NodeAttribute $node)
@@ -250,6 +250,11 @@ class SQLVisitor implements Visitor
 		{
 			return "{$left} IS NULL";
 		}
+	}
+
+	public function quote($name)
+	{
+		return "'{$name}'";
 	}
 
 	public function quoteColumnName($name)
