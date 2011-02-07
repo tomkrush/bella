@@ -10,4 +10,22 @@ Bella is a PHP project inspired by [Arel](http://github.com/rails/arel). Bella h
 
 ## Examples
 
-*as you can see they are not here yet*
+The best place to check out examples is in the unit tests (bella/tests).
+
+### Simple Query
+
+$users = new Table('users');
+echo  $users->project('*')->to_sql();
+
+// Result: SELECT * FROM users
+
+$users = new Table('users');
+$query = $users->where($users['name']->eq('bob')->otherwise($users['age']->lt(25)));
+
+// Result: SELECT FROM users WHERE (name = bob OR age < 25)
+
+### Keyword Conflicts
+
+I had to rename to methods 'and' to 'also' and 'or' to 'otherwise'. This decision was made because PHP uses both keywords 'or' and 'and'.
+
+If anyone finds words to better describe these methods message me.
