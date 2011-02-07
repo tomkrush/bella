@@ -245,6 +245,6 @@ class SQLVisitor implements Visitor
 	
 	public function quoteTableName($name)
 	{
-		return "`{$name}`";
+		return "\"{$name}\"";
 	}
 }
