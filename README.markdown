@@ -1,6 +1,6 @@
 # Bella
 
-Bella is a PHP project inspired by [Arel](http://github.com/rails/arel). Bella has the same internal structure as Arel and has a very similar syntax to it as well.
+Bella is a PHP project inspired by [Arel](http://github.com/rails/arel). Bella has the same internal structure as Arel and has a very similar syntax to it as well. Check [bella.tomkrush.com](http://bella.tomkrush.com) to see the tests perform.
 
 ## Installation
 
