@@ -29,7 +29,7 @@ class SelectManager extends TreeManager
 			$this->ast->froms = new NodeSQLLiteral($table);
 		}
 		
-		$this->ast->froms = new NodeSQLLiteral($table->name);
+		$this->ast->froms = $table;
 	}
 	
 	public function group()

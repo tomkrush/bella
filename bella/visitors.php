@@ -149,6 +149,11 @@ class SQLVisitor implements Visitor
 		return " HAVING {$expression}";
 	}
 	
+	public function visitTable(Table $table)
+	{
+		return $this->quoteTableName($table->name);
+	}
+	
 	public function visitSelectStatement(NodeSelectStatement $node)
 	{
 		$from_sql = "";
@@ -236,5 +241,10 @@ class SQLVisitor implements Visitor
 		{
 			return "{$left} IS NULL";
 		}
+	}
+	
+	public function quoteTableName($name)
+	{
+		return "`{$name}`";
 	}
 }
