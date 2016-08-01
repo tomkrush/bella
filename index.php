@@ -1,9 +1,11 @@
 <?php
 
-require 'bella/bella.php';
+require dirname(__FILE__) . '/vendor/autoload.php';
+
+require 'bella.php';
 
 require 'unit/unit.php';
-require 'bella/tests.php';
+require 'tests.php';
 
 $suite = new UnitTestSuite;
 

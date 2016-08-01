@@ -1,0 +1,20 @@
+{
+  "name": "tomkrush/bella",
+  "description": "Bella is a PHP project inspired by Arel.",
+  "version": "0.1.0",
+  "keywords": ["arel", "relational algebra"],
+  "license": "MIT",
+  "homepage": "https://github.com/tomkrush/bella",
+  "authors": [
+    {
+      "name": "Tom Krush",
+      "email": "t.krush@gmail.com",
+      "homepage": "http://tomkrush.com/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">= 5.2.13"
+  },
+  "include-path": ["bella/"]
+}
